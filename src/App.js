@@ -1,13 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './pages/Home';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import FilteredProduct from './pages/FilteredProduct';
+import NotFound from './pages/NotFound';
 
 function App() {
 	return (
 		<>
-			<div className=' h-screen w-full flex flex-col items-center justify-center'>
-				<Home></Home>
-			</div>
+			<Router>
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/filteredProduct/:type' element={<FilteredProduct />} />
+					<Route path='*' element={<NotFound />} />
+				</Routes>
+			</Router>
 		</>
 	);
 }
